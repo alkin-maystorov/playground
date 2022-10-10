@@ -4,9 +4,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 4173"
+    "preview": "vite preview --port 4173",
+    "db": "json-server --watch db.json --port 8000"
   },
   "dependencies": {
+    "json-server": "^0.17.0",
     "vue": "^3.2.38"
   },
   "devDependencies": {
