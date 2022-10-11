@@ -14,10 +14,12 @@ const app = Vue.createApp({
 
   computed: {
     monsterBar() {
+      if (this.monsterHp <= 0) return { width: '0%' };
       return { width: this.monsterHP + '%' };
     },
 
     playerBar() {
+      if (this.playerHP <= 0) return { width: '0%' };
       return { width: this.playerHP + '%' };
     },
 
@@ -39,6 +41,13 @@ const app = Vue.createApp({
   },
 
   methods: {
+    startNewGame() {
+      this.playerHP = 100;
+      this.monsterHP = 100;
+      this.currentRound = 0;
+      this.winner = null;
+    },
+
     attackMonster() {
       this.currentRound++;
       const attackValue = getRandomValue(5, 12);
