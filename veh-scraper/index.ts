@@ -15,7 +15,6 @@ async function getCarsData(url: string) {
     const res = await axios.get(url);
     const $ = cheerio.load(res.data);
     const cars = $('.card__content');
-    const nextPage = $('a span');
 
     cars.each(function (i, el) {
       const title = $(el).find('.card__title').text();
@@ -25,7 +24,7 @@ async function getCarsData(url: string) {
 
       carsData.push({ title, subTitle, montlyRate, rating });
     });
-    console.log(nextPage);
+    console.log(carsData);
   } catch (err) {
     console.error(err);
   }
